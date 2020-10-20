@@ -22,13 +22,8 @@ Template Name: General Template
 
                         <article>
                             <h2><?php the_title(); ?></h2>
-                            <p>Published in <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?></p>
-                            <p>Categories: <?php the_category( ' ' ); ?></p>
-                            <p><?php the_tags( 'Tags: ', ', ' )?></p>
                             <?php echo get_the_content(); ?>
                         </article>
-
-                        <p>Este modelo de páginas é igual em todas as páginas selecionadas</p>
 
                         <?php
                             endwhile;
