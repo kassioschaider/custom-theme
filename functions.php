@@ -1,7 +1,8 @@
 <?php
 
 //Carregando scripts e folhas de estilo
-function load_scripts() {
+function load_scripts() 
+{
     wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', 
         array('jquery'), '4.0.0.', true );
     wp_enqueue_style( 'bootstrap-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', 
@@ -10,10 +11,23 @@ function load_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'load_scripts' );
 
-//Registrando os menus
-register_nav_menus( 
-    array(
-        'my_main_menu' => 'Main Menu',
-        'footer_menu' => 'Footer Menu'
-    )
-);
+//Função de configuração do tema
+function custom_theme_config()
+{
+    //Registrando os menus
+    register_nav_menus( 
+        array(
+            'my_main_menu' => 'Main Menu',
+            'footer_menu' => 'Footer Menu'
+        )
+    );
+
+    //
+    $args = array(
+        'height' => 225,
+        'width' => 1920
+    );
+    add_theme_support( 'custom-header', $args );
+    add_theme_support( 'post-thumbnails' );
+}
+add_action( 'after_setup_theme', 'custom_theme_config', 0 );

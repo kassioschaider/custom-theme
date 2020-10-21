@@ -8,6 +8,10 @@ Template Name: General Template
 ?>
 
 <?php get_header(); ?>
+
+<img class="img-fluid" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" 
+    widht="<?php echo get_custom_header()->widht; ?>" alt="" />
+
     <div class="content-area">
         <main>
             <section class="middle-area">
